@@ -23,6 +23,19 @@ namespace Entaria
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
+            //entaria scripts
+            bundles.Add(new ScriptBundle("~/bundles/entaria").Include(
+                        "~/Scripts/angular.js",
+                        "~/Scripts/angular-route.js",
+                        "~/Scripts/angular-animate.js",
+                        "~/Scripts/angular-controllers.js",
+                        "~/Scripts/bootstra*",
+                        "~/Scripts/plug*",
+                        "~/Scripts/init*",
+                        "~/Scripts/main*",
+                        "~/Scripts/Feed*"
+                        ));
+
             bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/site.css"));
 
             bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(
@@ -38,6 +51,17 @@ namespace Entaria
                         "~/Content/themes/base/jquery.ui.datepicker.css",
                         "~/Content/themes/base/jquery.ui.progressbar.css",
                         "~/Content/themes/base/jquery.ui.theme.css"));
+
+            // entaria style
+            bundles.Add(new StyleBundle("~/Content/entaria/css").Include(
+                        "~/Content/normalize.css",
+                        "~/Content/main.css",
+                        "~/Content/bootstrap.css",
+                        "~/Content/justified-nav.css",
+                        "~/Content/FeedEk.css"
+                        ));
+
+
         }
     }
 }

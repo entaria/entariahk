@@ -191,9 +191,11 @@
     <Compile Include="Concrete\EFAdminRepository.cs" />
     <Compile Include="Concrete\EntariaContext.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\CardController.cs" />
     <Compile Include="Controllers\ClientCardBalanceController.cs" />
     <Compile Include="Controllers\ClientController.cs" />
+    <Compile Include="Controllers\ClientRegistrationController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LCHRegistrationController.cs" />
     <Compile Include="Controllers\LocationController.cs" />
@@ -230,7 +232,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\BrendanCSS.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\FeedEk.css" />
+    <Content Include="Content\justified-nav.css" />
+    <Content Include="Content\main.css" />
+    <Content Include="Content\normalize.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -296,8 +302,21 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
+    <Content Include="Images\advert.jpg" />
+    <Content Include="Images\coffee_shop_1.jpg" />
+    <Content Include="Images\coffee_shop_2.jpg" />
+    <Content Include="Images\coffee_shop_3.jpg" />
     <Content Include="Images\EntariaLogo.JPG" />
     <Content Include="Images\entaria_favicon.ico" />
+    <Content Include="Images\left-arrow.png" />
+    <Content Include="Images\right-arrow.png" />
+    <Content Include="Scripts\angular-animate.js" />
+    <Content Include="Scripts\angular-controllers.js" />
+    <Content Include="Scripts\angular-route.js" />
+    <Content Include="Scripts\angular.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\FeedEk.js" />
+    <Content Include="Scripts\init.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -311,7 +330,9 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\knockout-2.2.0.debug.js" />
     <Content Include="Scripts\knockout-2.2.0.js" />
+    <Content Include="Scripts\main.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\plugins.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -399,6 +420,13 @@
     <Content Include="Views\TransactionType\Delete.cshtml" />
     <Content Include="Views\UserTypeRegistration\Index.cshtml" />
     <Content Include="Views\LCHRegistration\Index.cshtml" />
+    <Content Include="Views\ClientRegistration\Index.cshtml" />
+    <Content Include="Views\UserTypeRegistration\_RegistrationTypePartial.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\Details.cshtml" />
+    <Content Include="Views\Admin\Create.cshtml" />
+    <Content Include="Views\Admin\Edit.cshtml" />
+    <Content Include="Views\Admin\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
