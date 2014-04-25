@@ -287,7 +287,11 @@
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <None Include="Properties\PublishProfiles\entaria - FTP %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\entaria - FTP %283%29.pubxml" />
     <None Include="Properties\PublishProfiles\entaria - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\entaria - Web Deploy %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\entaria - Web Deploy %283%29.pubxml" />
     <None Include="Properties\PublishProfiles\entaria - Web Deploy.pubxml">
       <SubType>Designer</SubType>
     </None>

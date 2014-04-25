@@ -59,7 +59,7 @@ namespace Entaria.Controllers
 
         //
         // GET: /Account/Register
-        //[AllowAnonymous]
+        [AllowAnonymous]
         public ActionResult Register()
         {
             return View();
@@ -69,7 +69,7 @@ namespace Entaria.Controllers
         //
         // POST: /Account/Register
         [HttpPost]
-        //[AllowAnonymous]
+        [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public ActionResult Register(RegisterModel model)
         {

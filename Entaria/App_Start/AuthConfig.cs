@@ -14,9 +14,9 @@ namespace Entaria
             // To let users of this site log in using their accounts from other sites such as Microsoft, Facebook, and Twitter,
             // you must update this site. For more information visit http://go.microsoft.com/fwlink/?LinkID=252166
 
-            OAuthWebSecurity.RegisterMicrosoftClient(
-                clientId: "0000000048118649",
-                clientSecret: "epcb2QID4x-ayged5S4Ygf7GYubpOTbS");
+            //OAuthWebSecurity.RegisterMicrosoftClient(
+            //    clientId: "0000000048118649",
+            //    clientSecret: "epcb2QID4x-ayged5S4Ygf7GYubpOTbS");
 
             //OAuthWebSecurity.RegisterTwitterClient(
             //    consumerKey: "",
