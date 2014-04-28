@@ -27,6 +27,14 @@
                 @Html.LabelFor(m => m.ConfirmPassword)
                 @Html.PasswordFor(m => m.ConfirmPassword)
             </li>
+            <li> 
+                <table><tr><td>
+                Loyalty Card Holder</td><td>
+                <input value="regloyaltyCardHolder" name="user_role" type="radio" /></td></tr>
+                <tr><td>
+                Client</td><td><input value="regclient" name="user_role" type="radio" /></td></tr>
+                </table>
+            </li>
         </ol>
         <input type="submit" value="Register" />
     </fieldset>

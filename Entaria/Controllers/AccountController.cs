@@ -71,7 +71,7 @@ namespace Entaria.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public ActionResult Register(RegisterModel model)
+        public ActionResult Register(RegisterModel model, string user_role)
         {
             if (ModelState.IsValid)
             {
@@ -80,6 +80,14 @@ namespace Entaria.Controllers
                 {
                     WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
                     WebSecurity.Login(model.UserName, model.Password);
+                    if (user_role == "regclient")
+                    {
+                        Roles.AddUserToRole(model.UserName, "client");
+                    }
+                    else
+                    {
+                        Roles.AddUserToRole(model.UserName, "LCH");
+                    }
                     return RedirectToAction("Index", "Home");
                 }
                 catch (MembershipCreateUserException e)
