@@ -10,12 +10,11 @@ using Entaria.Models;
 namespace Entaria.Controllers
 {
     public class LoyaltyCardHolderController : Controller
-    { // well Done Adrian looks good.............
+    { 
         private EntariaContext db = new EntariaContext();
 
         //
         // GET: /LoyaltyCardHolder/
-
         public ActionResult Index()
         {
             return View(db.LoyaltyCardHolders.ToList());
@@ -24,6 +23,7 @@ namespace Entaria.Controllers
         //
         // GET: /LoyaltyCardHolder/Details/5
 
+        [Authorize (Roles="admin, LCH")]
         public ActionResult Details(int id = 0)
         {
             LoyaltyCardHolder loyaltycardholder = db.LoyaltyCardHolders.Find(id);
@@ -37,6 +37,7 @@ namespace Entaria.Controllers
         //
         // GET: /LoyaltyCardHolder/Create
 
+        [Authorize (Roles="admin, LCH")]
         public ActionResult Create()
         {
             return View();
@@ -47,6 +48,7 @@ namespace Entaria.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize (Roles="admin, LCH")]
         public ActionResult Create(LoyaltyCardHolder loyaltycardholder)
         {
             if (ModelState.IsValid)
@@ -62,6 +64,7 @@ namespace Entaria.Controllers
         //
         // GET: /LoyaltyCardHolder/Edit/5
 
+        [Authorize (Roles="admin, LCH")]
         public ActionResult Edit(int id = 0)
         {
             LoyaltyCardHolder loyaltycardholder = db.LoyaltyCardHolders.Find(id);
@@ -77,6 +80,7 @@ namespace Entaria.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize (Roles="admin, LCH")]
         public ActionResult Edit(LoyaltyCardHolder loyaltycardholder)
         {
             if (ModelState.IsValid)
@@ -91,6 +95,7 @@ namespace Entaria.Controllers
         //
         // GET: /LoyaltyCardHolder/Delete/5
 
+        [Authorize (Roles="admin")]
         public ActionResult Delete(int id = 0)
         {
             LoyaltyCardHolder loyaltycardholder = db.LoyaltyCardHolders.Find(id);
@@ -106,6 +111,7 @@ namespace Entaria.Controllers
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "admin")]
         public ActionResult DeleteConfirmed(int id)
         {
             LoyaltyCardHolder loyaltycardholder = db.LoyaltyCardHolders.Find(id);

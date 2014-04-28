@@ -196,6 +196,7 @@
     <Compile Include="Controllers\ClientCardBalanceController.cs" />
     <Compile Include="Controllers\ClientController.cs" />
     <Compile Include="Controllers\ClientRegistrationController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LCHRegistrationController.cs" />
     <Compile Include="Controllers\LocationController.cs" />
