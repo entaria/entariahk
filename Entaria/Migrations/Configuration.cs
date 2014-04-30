@@ -5,8 +5,6 @@ namespace Entaria.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    using Entaria.Models;
-
     internal sealed class Configuration : DbMigrationsConfiguration<Entaria.Models.EntariaContext>
     {
         public Configuration()
@@ -28,51 +26,6 @@ namespace Entaria.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
-
-            context.Admins.AddOrUpdate(
-                p => p.UserName,
-                new Admin { Title     = "Mr",
-                            FirstName = "Hugh",
-                            LastName  = "Kelly",
-                            UserName  = "hkelly",
-                            Password  = "a123456#",
-                            LastLoginDate = DateTime.Now,
-                            CreationDateTime = DateTime.Now,
-                            ModificationDateTime = DateTime.Now,
-                },
-                new Admin { Title     = "Mr",
-                            FirstName = "Adrian",
-                            LastName  = "Mann",
-                            UserName  = "amann",
-                            Password  = "a123456#",
-                            LastLoginDate = DateTime.Now,
-                            CreationDateTime = DateTime.Now,
-                            ModificationDateTime = DateTime.Now,
-                },
-                new Admin { Title     = "Mr",
-                            FirstName = "Brendan",
-                            LastName  = "O'Brien",
-                            UserName  = "bobrien",
-                            Password  = "a123456#",
-                            LastLoginDate = DateTime.Now,
-                            CreationDateTime = DateTime.Now,
-                            ModificationDateTime = DateTime.Now,
-                },
-                new Admin { Title     = "Mr",
-                            FirstName = "Fran",
-                            LastName  = "Rodgers",
-                            UserName  = "frodgers",
-                            Password  = "a123456#",
-                            LastLoginDate = DateTime.Now,
-                            CreationDateTime = DateTime.Now,
-                            ModificationDateTime = DateTime.Now,
-                }
-                
-                
-
-                
-           );
-     
         }
     }
 }

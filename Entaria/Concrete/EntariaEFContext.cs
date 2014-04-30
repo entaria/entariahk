@@ -23,6 +23,8 @@ namespace Entaria.Concrete
 
         public DbSet<ClientCardBalance> ClientCardBalances { get; set; }
 
+        public DbSet<CardHolderDetail> CardHolderDetails { get; set; }
+
         public DbSet<Transaction> Transactions { get; set; }
 
         public DbSet<TransactionType> TransactionTypes { get; set; }

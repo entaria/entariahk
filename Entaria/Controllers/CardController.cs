@@ -6,19 +6,26 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Entaria.Models;
+using Entaria.Abstract;
 
 namespace Entaria.Controllers
 {
     public class CardController : Controller
     {
-        private EntariaContext db = new EntariaContext();
+        //private EntariaContext db = new EntariaContext();
+        private ICardRepository objContext;
+        public CardController(ICardRepository cardRepository)
+        {
+            this.objContext = cardRepository;
+        }
 
         //
         // GET: /Card/
 
         public ActionResult Index()
         {
-            return View(db.Cards.ToList());
+            //return View(db.Cards.ToList());
+            return View(objContext.Cards);
         }
 
         //
@@ -26,7 +33,8 @@ namespace Entaria.Controllers
 
         public ActionResult Details(int id = 0)
         {
-            Card card = db.Cards.Find(id);
+            //Card card = db.Cards.Find(id);
+            Card card = objContext.Cards.Where(x => x.CardId == id).SingleOrDefault();
             if (card == null)
             {
                 return HttpNotFound();
@@ -39,7 +47,8 @@ namespace Entaria.Controllers
 
         public ActionResult Create()
         {
-            return View();
+            //return View();
+            return View(new Card());
         }
 
         //
@@ -51,8 +60,9 @@ namespace Entaria.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Cards.Add(card);
-                db.SaveChanges();
+                //db.Cards.Add(card);
+                //db.SaveChanges();
+                objContext.SaveCard(card);
                 return RedirectToAction("Index");
             }
 
@@ -64,7 +74,9 @@ namespace Entaria.Controllers
 
         public ActionResult Edit(int id = 0)
         {
-            Card card = db.Cards.Find(id);
+            //Card card = db.Cards.Find(id);
+            Card card = objContext.Cards.Where(
+                x => x.CardId == id).SingleOrDefault();
             if (card == null)
             {
                 return HttpNotFound();
@@ -79,13 +91,23 @@ namespace Entaria.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Card card)
         {
+            //if (ModelState.IsValid)
+            //{
+            //    db.Entry(card).State = EntityState.Modified;
+            //    db.SaveChanges();
+            //    return RedirectToAction("Index");
+            //}
+            //return View(card);
+
             if (ModelState.IsValid)
             {
-                db.Entry(card).State = EntityState.Modified;
-                db.SaveChanges();
+                objContext.SaveCard(card);
                 return RedirectToAction("Index");
             }
-            return View(card);
+            else                    
+            {                       
+                return View(card);  
+            }                        
         }
 
         //
@@ -93,7 +115,8 @@ namespace Entaria.Controllers
 
         public ActionResult Delete(int id = 0)
         {
-            Card card = db.Cards.Find(id);
+            //Card card = db.Cards.Find(id);
+            Card card = objContext.DeleteCard(id);
             if (card == null)
             {
                 return HttpNotFound();
@@ -108,16 +131,19 @@ namespace Entaria.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Card card = db.Cards.Find(id);
-            db.Cards.Remove(card);
-            db.SaveChanges();
+            //Card card = db.Cards.Find(id);
+            //db.Cards.Remove(card);
+            //db.SaveChanges();
+            Card card = objContext.DeleteCard(id);
             return RedirectToAction("Index");
         }
 
+        /*
         protected override void Dispose(bool disposing)
         {
             db.Dispose();
             base.Dispose(disposing);
         }
+        */
     }
 }

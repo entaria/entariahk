@@ -140,6 +140,19 @@ namespace Entaria.Migrations
                 .PrimaryKey(t => t.ClientCardBalanceId);
             
             CreateTable(
+                "dbo.CardHolderDetails",
+                c => new
+                    {
+                        CardHolderDetailId = c.Int(nullable: false, identity: true),
+                        FirstName = c.String(),
+                        LastName = c.String(),
+                        EmailAddress = c.String(),
+                        PhoneNo = c.String(),
+                        PassWord = c.String(),
+                    })
+                .PrimaryKey(t => t.CardHolderDetailId);
+            
+            CreateTable(
                 "dbo.Transactions",
                 c => new
                     {
@@ -151,6 +164,7 @@ namespace Entaria.Migrations
                         ReceiptNumber = c.String(),
                         TransactionTypeId = c.Int(nullable: false),
                         TransactionTime = c.DateTime(nullable: false),
+                        TransactionPoints = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.TransactionId);
             
@@ -169,6 +183,7 @@ namespace Entaria.Migrations
         {
             DropTable("dbo.TransactionTypes");
             DropTable("dbo.Transactions");
+            DropTable("dbo.CardHolderDetails");
             DropTable("dbo.ClientCardBalances");
             DropTable("dbo.Locations");
             DropTable("dbo.Clients");

@@ -43,6 +43,12 @@
     <Reference Include="Ninject">
       <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
     </Reference>
+    <Reference Include="Ninject.Web.Common">
+      <HintPath>..\packages\Ninject.Web.Common.3.2.1.0\lib\net45-full\Ninject.Web.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.WebApi.DependencyResolver">
+      <HintPath>..\packages\Ninject.WebApi.DependencyResolver.0.1.4758.24814\lib\net45\Ninject.WebApi.DependencyResolver.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
@@ -182,20 +188,28 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\ICardRepository.cs" />
+    <Compile Include="Abstract\IAdminAPIRepository.cs" />
     <Compile Include="Abstract\IAdminRepository.cs" />
     <Compile Include="App_Start\AuthConfig.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Concrete\EFCardRepository.cs" />
+    <Compile Include="Concrete\EFAdminAPIRepository.cs" />
     <Compile Include="Concrete\EFAdminRepository.cs" />
     <Compile Include="Concrete\EntariaEFContext.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminAPIController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\CardController.cs" />
+    <Compile Include="Controllers\CcbController.cs" />
+    <Compile Include="Controllers\ChdController.cs" />
     <Compile Include="Controllers\ClientCardBalanceController.cs" />
     <Compile Include="Controllers\ClientController.cs" />
     <Compile Include="Controllers\ClientRegistrationController.cs" />
+    <Compile Include="Controllers\CwsController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LCHRegistrationController.cs" />
@@ -210,18 +224,15 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\NinjectControllerFactory.cs" />
-    <Compile Include="Migrations\201404181322280_init.cs" />
-    <Compile Include="Migrations\201404181322280_init.Designer.cs">
-      <DependentUpon>201404181322280_init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201404181425574_Hugh-11.cs" />
-    <Compile Include="Migrations\201404181425574_Hugh-11.Designer.cs">
-      <DependentUpon>201404181425574_Hugh-11.cs</DependentUpon>
+    <Compile Include="Migrations\201404301739474_init.cs" />
+    <Compile Include="Migrations\201404301739474_init.Designer.cs">
+      <DependentUpon>201404301739474_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\Card.cs" />
+    <Compile Include="Models\CardHolderDetail.cs" />
     <Compile Include="Models\Client.cs" />
     <Compile Include="Models\ClientCardBalance.cs" />
     <Compile Include="Models\EntariaContext.cs" />
@@ -233,6 +244,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Readme\readme.txt" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\FeedEk.css" />
     <Content Include="Content\justified-nav.css" />
@@ -436,11 +448,8 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201404181322280_init.resx">
-      <DependentUpon>201404181322280_init.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201404181425574_Hugh-11.resx">
-      <DependentUpon>201404181425574_Hugh-11.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201404301739474_init.resx">
+      <DependentUpon>201404301739474_init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

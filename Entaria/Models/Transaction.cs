@@ -15,5 +15,6 @@ namespace Entaria.Models
         public string ReceiptNumber { get; set; }
         public int TransactionTypeId { get; set; }
         public DateTime TransactionTime { get; set; }
+        public int TransactionPoints { get; set; }
     }
 }

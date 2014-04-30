@@ -31,6 +31,8 @@ namespace Entaria.Infrastructure
         {
             //add bindings later
             ninjectKernel.Bind<IAdminRepository>().To<EFAdminRepository>();
+            ninjectKernel.Bind<ICardRepository>().To<EFCardRepository>();
+            //ninjectKernel.Bind<IAdminAPIRepository>().To<EFAdminAPIRepository>();
         }
 
     }
