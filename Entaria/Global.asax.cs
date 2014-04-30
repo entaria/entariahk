@@ -7,8 +7,8 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using Entaria.Infrastructure;
-//using System.Data.Entity;
-//using Entaria.Concrete;
+using System.Data.Entity;
+using Entaria.Concrete;
 
 namespace Entaria
 {

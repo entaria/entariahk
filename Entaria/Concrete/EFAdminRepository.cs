@@ -9,7 +9,7 @@ namespace Entaria.Concrete
 {
     public class EFAdminRepository : IAdminRepository
     {
-        private EntariaContext context = new EntariaContext();
+        private EntariaEFContext context = new EntariaEFContext();
         public IQueryable<Admin> Admins
         {
             get { return context.Admins; }

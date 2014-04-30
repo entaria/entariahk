@@ -189,7 +189,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Concrete\EFAdminRepository.cs" />
-    <Compile Include="Concrete\EntariaContext.cs" />
+    <Compile Include="Concrete\EntariaEFContext.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\CardController.cs" />
