@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace Entaria.Controllers
 {
+    [Authorize(Roles = "admin, client")]
     public class ClientRegistrationController : Controller
     {
         //

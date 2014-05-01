@@ -15,6 +15,7 @@ namespace Entaria.Controllers
 
         //
         // GET: /LoyaltyCardHolder/
+        [Authorize(Roles = "admin, LCH")]
         public ActionResult Index()
         {
             return View(db.LoyaltyCardHolders.ToList());
@@ -27,11 +28,18 @@ namespace Entaria.Controllers
         public ActionResult Details(int id = 0)
         {
             LoyaltyCardHolder loyaltycardholder = db.LoyaltyCardHolders.Find(id);
-            if (loyaltycardholder == null)
+            if (loyaltycardholder == null )
             {
                 return HttpNotFound();
             }
-            return View(loyaltycardholder);
+            if (User.IsInRole("admin") || loyaltycardholder.UserName.Equals(User.Identity.Name))
+            {
+                return View(loyaltycardholder);
+            }
+            else
+            {
+                return HttpNotFound();
+            }
         }
 
         //
@@ -72,7 +80,14 @@ namespace Entaria.Controllers
             {
                 return HttpNotFound();
             }
-            return View(loyaltycardholder);
+            if (User.IsInRole("admin") || loyaltycardholder.UserName.Equals(User.Identity.Name))
+            {
+                return View(loyaltycardholder);
+            }
+            else
+            {
+                return HttpNotFound();
+            }
         }
 
         //

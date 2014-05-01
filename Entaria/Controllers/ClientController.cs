@@ -15,7 +15,7 @@ namespace Entaria.Controllers
 
         //
         // GET: /Client/
-
+        [Authorize(Roles = "admin, client")]
         public ActionResult Index()
         {
             return View(db.Clients.ToList());
@@ -23,7 +23,7 @@ namespace Entaria.Controllers
 
         //
         // GET: /Client/Details/5
-
+        [Authorize(Roles = "admin, client")]
         public ActionResult Details(int id = 0)
         {
             Client client = db.Clients.Find(id);
@@ -31,12 +31,20 @@ namespace Entaria.Controllers
             {
                 return HttpNotFound();
             }
-            return View(client);
+            if (User.IsInRole("admin") || client.CompanyName.Equals(User.Identity.Name))
+            {
+                return View(client);
+            }
+            else
+            {
+                return HttpNotFound();
+            }
         }
 
         //
         // GET: /Client/Create
 
+        [Authorize(Roles = "admin, client")]
         public ActionResult Create()
         {
             return View();
@@ -47,6 +55,7 @@ namespace Entaria.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "admin, client")]
         public ActionResult Create(Client client)
         {
             if (ModelState.IsValid)
@@ -55,13 +64,12 @@ namespace Entaria.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
             return View(client);
         }
 
         //
         // GET: /Client/Edit/5
-
+        [Authorize(Roles = "admin, client")]
         public ActionResult Edit(int id = 0)
         {
             Client client = db.Clients.Find(id);
@@ -69,12 +77,19 @@ namespace Entaria.Controllers
             {
                 return HttpNotFound();
             }
-            return View(client);
+            if (User.IsInRole("admin") || client.CompanyName.Equals(User.Identity.Name))
+            {
+                return View(client);
+            }
+            else
+            {
+                return HttpNotFound();
+            }
         }
 
         //
         // POST: /Client/Edit/5
-
+        [Authorize(Roles = "admin, client")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Client client)
@@ -90,7 +105,7 @@ namespace Entaria.Controllers
 
         //
         // GET: /Client/Delete/5
-
+        [Authorize(Roles = "admin")]
         public ActionResult Delete(int id = 0)
         {
             Client client = db.Clients.Find(id);
@@ -98,12 +113,19 @@ namespace Entaria.Controllers
             {
                 return HttpNotFound();
             }
-            return View(client);
+            if (User.IsInRole("admin") || client.CompanyName.Equals(User.Identity.Name))
+            {
+                return View(client);
+            }
+            else
+            {
+                return HttpNotFound();
+            }
         }
 
         //
         // POST: /Client/Delete/5
-
+        [Authorize(Roles = "admin")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

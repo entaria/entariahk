@@ -12,6 +12,7 @@ using Entaria.Abstract;
 
 namespace Entaria.Controllers
 {
+    [Authorize(Roles = "admin")]
     public class AdminController : Controller
     {
         //private EntariaContext db = new EntariaContext();

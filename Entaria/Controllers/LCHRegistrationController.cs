@@ -9,6 +9,7 @@ using Entaria.Models;
 
 namespace Entaria.Controllers
 {
+    [Authorize(Roles = "admin, LCH")]
     public class LCHRegistrationController : Controller
     {
         //

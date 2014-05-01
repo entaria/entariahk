@@ -9,6 +9,7 @@ using Entaria.Models;
 
 namespace Entaria.Controllers
 {
+    [Authorize(Roles = "admin, client")]
     public class ClientProfileController : Controller
     {
         private EntariaContext db = new EntariaContext();

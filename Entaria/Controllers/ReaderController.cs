@@ -9,6 +9,7 @@ using Entaria.Models;
 
 namespace Entaria.Controllers
 {
+    [Authorize(Roles = "admin")]
     public class ReaderController : Controller
     {
         private EntariaContext db = new EntariaContext();

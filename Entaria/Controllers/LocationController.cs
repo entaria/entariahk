@@ -9,6 +9,7 @@ using Entaria.Models;
 
 namespace Entaria.Controllers
 {
+    [Authorize(Roles = "admin")]
     public class LocationController : Controller
     {
         private EntariaContext db = new EntariaContext();
