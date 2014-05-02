@@ -25,6 +25,14 @@
                 @Html.TextBoxFor(m => m.UserName)
                 @Html.ValidationMessageFor(m => m.UserName)
             </li>
+            <li>
+                <table><tr><td>
+                Loyalty Card Holder</td><td>
+                <input value="regloyaltyCardHolder" name="user_role" type="radio" /></td></tr>
+                <tr><td>
+                Client</td><td><input value="regclient" name="user_role" type="radio" /></td></tr>
+                </table>
+            <li>
         </ol>
         @Html.HiddenFor(m => m.ExternalLoginData)
         <input type="submit" value="Register" />

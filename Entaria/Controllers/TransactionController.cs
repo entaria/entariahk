@@ -9,7 +9,7 @@ using Entaria.Models;
 
 namespace Entaria.Controllers
 {
-    [Authorize(Roles = "admin")]
+    [Authorize]
     public class TransactionController : Controller
     {
         private EntariaContext db = new EntariaContext();
@@ -19,7 +19,33 @@ namespace Entaria.Controllers
 
         public ActionResult Index()
         {
-            return View(db.Transactions.ToList());
+            /*
+            if (User.IsInRole("admin"))
+            {
+            */
+ 
+                return View(db.Transactions.ToList());
+            /*
+            }
+            else
+            {                
+                if (User.IsInRole("LCH")) {
+                    IEnumerable<Transaction> transaction = db.Transactions.Where(       x => x.CardId == 
+                                                          (db.Cards.Where(              y => y.LoyaltyCardHolderId == 
+                                                          (db.LoyaltyCardHolders.Where( z => z.UserName.Equals(User.Identity.Name)).Single().LoyaltyCardHolderId)).Single().CardId)).ToList();
+                    if (transaction == null)
+                    {
+                        return HttpNotFound();
+                    }
+                    else
+                    {
+                        return View(transaction);
+                    }
+                }
+                else {
+                    return HttpNotFound();
+                }
+            } */       
         }
 
         //
@@ -63,6 +89,7 @@ namespace Entaria.Controllers
         //
         // GET: /Transaction/Edit/5
 
+        [Authorize(Roles = "admin")]
         public ActionResult Edit(int id = 0)
         {
             Transaction transaction = db.Transactions.Find(id);
@@ -76,6 +103,7 @@ namespace Entaria.Controllers
         //
         // POST: /Transaction/Edit/5
 
+        [Authorize(Roles = "admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Transaction transaction)
@@ -92,6 +120,7 @@ namespace Entaria.Controllers
         //
         // GET: /Transaction/Delete/5
 
+        [Authorize(Roles = "admin")]
         public ActionResult Delete(int id = 0)
         {
             Transaction transaction = db.Transactions.Find(id);
@@ -105,6 +134,7 @@ namespace Entaria.Controllers
         //
         // POST: /Transaction/Delete/5
 
+        [Authorize(Roles = "admin")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

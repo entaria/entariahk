@@ -18,7 +18,23 @@ namespace Entaria.Controllers
         [Authorize(Roles = "admin, LCH")]
         public ActionResult Index()
         {
-            return View(db.LoyaltyCardHolders.ToList());
+            if (User.IsInRole("admin"))
+            {
+                return View(db.LoyaltyCardHolders.ToList());
+            }
+            else
+            {
+                IEnumerable<LoyaltyCardHolder> loyaltycardholder = db.LoyaltyCardHolders.Where(x => x.UserName.Equals(User.Identity.Name)).ToList();
+                if (loyaltycardholder == null)
+                {
+                    return HttpNotFound();
+                }
+                else
+                {
+                    return View(loyaltycardholder);
+                }
+            }
+
         }
 
         //

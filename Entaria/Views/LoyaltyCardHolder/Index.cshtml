@@ -11,9 +11,11 @@
 </p>
 <table>
     <tr>
+        <!--
         <th>
             @Html.DisplayNameFor(model => model.Title)
         </th>
+        -->
         <th>
             @Html.DisplayNameFor(model => model.FirstName)
         </th>
@@ -23,6 +25,7 @@
         <th>
             @Html.DisplayNameFor(model => model.UserName)
         </th>
+        <!--
         <th>
             @Html.DisplayNameFor(model => model.Street)
         </th>
@@ -77,14 +80,17 @@
         <th>
             @Html.DisplayNameFor(model => model.CreatedByUserName)
         </th>
+        -->
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
+        <!--
         <td>
             @Html.DisplayFor(modelItem => item.Title)
         </td>
+        -->
         <td>
             @Html.DisplayFor(modelItem => item.FirstName)
         </td>
@@ -94,6 +100,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.UserName)
         </td>
+        <!--
         <td>
             @Html.DisplayFor(modelItem => item.Street)
         </td>
@@ -148,10 +155,12 @@
         <td>
             @Html.DisplayFor(modelItem => item.CreatedByUserName)
         </td>
+        -->
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.LoyaltyCardHolderId }) |
             @Html.ActionLink("Details", "Details", new { id=item.LoyaltyCardHolderId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.LoyaltyCardHolderId })
+            @Html.ActionLink("Delete", "Delete", new { id=item.LoyaltyCardHolderId }) |
+            @Html.ActionLink("Transaction List", "Index", "Transaction", new { id=item.LoyaltyCardHolderId }, null)
         </td>
     </tr>
 }

@@ -14,9 +14,11 @@
         <th>
             @Html.DisplayNameFor(model => model.CompanyName)
         </th>
+        <!--
         <th>
             @Html.DisplayNameFor(model => model.MainContactTitle)
         </th>
+        -->
         <th>
             @Html.DisplayNameFor(model => model.MainContactName)
         </th>
@@ -29,6 +31,7 @@
         <th>
             @Html.DisplayNameFor(model => model.PrimaryCity)
         </th>
+        <!--
         <th>
             @Html.DisplayNameFor(model => model.PrimaryCounty)
         </th>
@@ -70,7 +73,7 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.CreatedByUserName)
-        </th>
+        </th> -->
         <th></th>
     </tr>
 
@@ -79,9 +82,11 @@
         <td>
             @Html.DisplayFor(modelItem => item.CompanyName)
         </td>
+        <!--
         <td>
             @Html.DisplayFor(modelItem => item.MainContactTitle)
         </td>
+        -->
         <td>
             @Html.DisplayFor(modelItem => item.MainContactName)
         </td>
@@ -94,6 +99,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.PrimaryCity)
         </td>
+        <!--
         <td>
             @Html.DisplayFor(modelItem => item.PrimaryCounty)
         </td>
@@ -136,6 +142,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.CreatedByUserName)
         </td>
+        -->
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ClientId }) |
             @Html.ActionLink("Details", "Details", new { id=item.ClientId }) |

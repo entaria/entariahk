@@ -18,7 +18,22 @@ namespace Entaria.Controllers
         [Authorize(Roles = "admin, client")]
         public ActionResult Index()
         {
-            return View(db.Clients.ToList());
+            if (User.IsInRole("admin") ){
+                return View(db.Clients.ToList());
+            }
+            else
+            {
+                //Client client = db.Clients.Where(x => x.CompanyName.Equals(User.Identity.Name));
+                IEnumerable <Client> client = db.Clients.Where(x => x.CompanyName.Equals(User.Identity.Name)).ToList();
+                if (client == null)
+                {
+                    return HttpNotFound();
+                }
+                else
+                {
+                    return View(client);
+                }
+            }
         }
 
         //

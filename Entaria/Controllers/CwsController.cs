@@ -65,7 +65,7 @@ namespace Entaria.Controllers
 
             if (card == null)
             {
-                Card newCard = new Card() { Number = LCid, LoyaltyCardHolderId = 0 };
+                Card newCard = new Card() { Number = LCid, LoyaltyCardHolderId = 1 };
 
                 var returned = PostNewCard(newCard);
 
@@ -146,7 +146,7 @@ namespace Entaria.Controllers
         {
             if (ModelState.IsValid)
             {
-                var retID = 0;
+                var retID = 1;
                 try
                 {
                     db.Cards.Add(card);
